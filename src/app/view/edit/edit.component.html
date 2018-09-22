@@ -1,0 +1,49 @@
+<div>
+	<br>
+	<mat-card>
+		<section class="mat-typography">
+			<h3>Update User</h3>
+		</section>
+		<br>
+		<form [formGroup]="updateForm" class="edit-form">
+			<mat-form-field class="field-full-width">
+				<input matInput placeholder="User ID" formControlName="u_id" #u_id>
+			</mat-form-field>
+
+			<mat-form-field class="field-full-width">
+				<input matInput placeholder="email" formControlName="email" #email>
+			</mat-form-field>
+
+			<mat-form-field class="field-full-width">
+				<input matInput placeholder="Password" formControlName="pwd" #pwd>
+			</mat-form-field>
+
+			<mat-form-field class="field-full-width">
+				<input matInput placeholder="Username" formControlName="name" #name>
+			</mat-form-field>
+
+			<mat-form-field class="field-full-width">
+				<input matInput placeholder="Phone Number" formControlName="phone" #phone>
+			</mat-form-field>
+
+			<mat-form-field>
+				<mat-select placeholder="Gender" formControlName="gender" #gender>
+					<mat-option value="male">Male</mat-option>
+					<mat-option value="female">Female</mat-option>
+				</mat-select>
+			</mat-form-field>
+			&nbsp;&nbsp;&nbsp;
+			<mat-form-field>
+				<mat-select placeholder="Status" formControlName="status" #status>
+					<mat-option value="male">Online</mat-option>
+					<mat-option value="female">OffLine</mat-option>
+				</mat-select>
+			</mat-form-field>
+
+			<mat-divider></mat-divider>
+			<br><br>
+			<button mat-raised-button color="accent" routerLink="/list">Back</button> &nbsp;
+			<button type="submit" (click)="updateDataUser(u_id.value, email.value, pwd.value, name.value, phone.value, gender.value)" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary">Update</button>
+		</form>
+	</mat-card>
+</div>

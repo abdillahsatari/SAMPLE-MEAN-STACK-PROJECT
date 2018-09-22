@@ -1,0 +1,54 @@
+<div>
+	<br>
+	<mat-card>
+		<button mat-raised-button color="primary" routerLink="/create">Create New User</button>
+		<br><br>
+		<mat-divider></mat-divider>
+		<br>
+		<div style="overflow-x:auto;">
+			<table mat-table [dataSource]="user">
+			<ng-container matColumnDef="u_id">
+				<th mat-header-cell *matHeaderCellDef>ID</th>
+				<td mat-cell *matCellDef="let element">{{element.u_id}}</td>
+			</ng-container>
+			
+			<ng-container matColumnDef="email">
+				<th mat-header-cell *matHeaderCellDef>Email</th>
+				<td mat-cell *matCellDef="let element">{{element.email}}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="pwd">
+				<th mat-header-cell *matHeaderCellDef>Password</th>
+				<td mat-cell *matCellDef="let element">{{element.pwd}}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="name">
+				<th mat-header-cell *matHeaderCellDef>Name</th>
+				<td mat-cell *matCellDef="let element">{{element.name}}</td>
+			</ng-container>
+			
+			<ng-container matColumnDef="phone">
+				<th mat-header-cell *matHeaderCellDef>Phone</th>
+				<td mat-cell *matCellDef="let element">{{element.phone}}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="gender">
+				<th mat-header-cell *matHeaderCellDef>Gender</th>
+				<td mat-cell *matCellDef="let element">{{element.gender}}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="actions">
+				<th mat-header-cell *matHeaderCellDef class="mat-column-fixed">Action</th>
+				<td mat-cell *matCellDef="let element" class="mat-column-fixed">
+					<button mat-button color="primary" (click)="editDataUser(element._id)">Edit</button>
+					<button mat-button color="warn" (click)="deleteDataUser(element._id)">Delete</button>
+				</td>
+			</ng-container>
+
+			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+			<tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+			
+		</table>
+		</div>
+	</mat-card>
+</div>
