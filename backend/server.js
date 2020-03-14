@@ -13,7 +13,7 @@ const router = express.Router();
 app.use(cors());
 app.use(bodyParser.json());
 
-//url of mongodb database
+//mongodb database
 //localhost:27017 is the host or port of our mongdb url/ location
 // /users is a specific database that we want to use in our server
 mongoose.connect('mongodb://localhost:27017/MySimpleDB');
@@ -73,14 +73,6 @@ router.route('/users/update/:id').post((req, res) =>{
 			user.phone  = req.body.phone;
 			user.gender = req.body.gender;
 			user.status = req.body.status;
-			// user.u_id    = req.body.u_id;
-			// user.email  = req.body.email;
-			// user.pwd = req.body.pwd;
-			// user.name   = req.body.name;
-			// user.phone  = req.body.phone;
-			
-			
-			// user.gender = req.body.gender;
 
 			user.save().then(user => {
 				res.json('Update done');
