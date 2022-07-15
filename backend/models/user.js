@@ -24,11 +24,6 @@ let User = new Schema({
 		type : String,
 		default : 'active'
 	}
-
-	//pendeklarasian di atas tidak mempengaruhi data yang muncul
-	//untuk method get
-	//namun akan digunakan saat kita akan melakukan edit insert atau pun delete
-
 });
 
 export default mongoose.model('User', User);
